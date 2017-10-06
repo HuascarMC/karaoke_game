@@ -33,4 +33,10 @@ class TestRooms < MiniTest::Test
     assert_equal(0, @room01.playlist_count())
   end
 
+  def test_check_in_guest_by_name
+    @room01.check_in_guest("Miguel", @waiting_room)
+    assert_equal(2, @waiting_room.queue_count)
+    assert_equal(1, @room01.guest_count)
+  end
+
 end

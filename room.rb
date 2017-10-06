@@ -15,4 +15,23 @@ class Room
     @playlist.count
   end
 
+  def check_in_guest(name, waiting_room)
+    guest = waiting_room.call_guest(name)
+    if (guest.name == name) && (guest.money > 25)
+      @guests << guest
+      waiting_room.remove_guest(name)
+      @till += 25
+    else
+      return "Not enough founds"
+    end
+  end
+
+  def check_out_guest(name)
+    for guest in @guests
+      if guest.name == name
+        @guests.delete(guest)
+      end
+    end
+  end
+
 end
