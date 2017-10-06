@@ -14,5 +14,12 @@ class TestWaitingRoom < MiniTest::Test
     @waiting_room = WaitingRoom.new(@queue)
   end
 
+  def test_queue_count
+    assert_equal(2, @waiting_room.queue_count())
+  end
+
+  def test_call_guest_name
+    assert_equal(@guest_2, @waiting_room.call_guest("Miguel"))
+  end
 
 end
