@@ -17,4 +17,9 @@ class WaitingRoom
     end
   end
 
+  def remove_guest(name)
+    guest = call_guest(name)
+    @queue.delete(guest)
+  end
+
 end

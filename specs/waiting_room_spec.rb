@@ -21,5 +21,10 @@ class TestWaitingRoom < MiniTest::Test
   def test_call_guest_name
     assert_equal(@guest_2, @waiting_room.call_guest("Miguel"))
   end
+  
+  def test_remove_guest_by_name
+    @waiting_room.remove_guest('Miguel')
+    assert_equal(1, @waiting_room.queue_count)
+  end
 
 end
