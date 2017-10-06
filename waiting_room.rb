@@ -5,5 +5,16 @@ class WaitingRoom
     @queue = queue
   end
 
+  def queue_count
+    @queue.count
+  end
+
+  def call_guest(name)
+    for guest in @queue
+      if guest.name == name
+        return guest
+      end
+    end
+  end
 
 end
