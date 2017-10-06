@@ -39,4 +39,9 @@ class TestRooms < MiniTest::Test
     assert_equal(1, @room01.guest_count)
   end
 
+  def test_not_enough_funds
+    result = @room01.check_in_guest("Dan", @waiting_room)
+    assert("Not enough funds", result)
+  end
+
 end
