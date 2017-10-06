@@ -9,5 +9,7 @@ class TestGuest < Minitest::Test
     @guest_3 = Guest.new("Dan", 20, @song03)
   end
 
-
+  def test_call_guest_name
+    assert_equal("Miguel", @guest_2.name)
+  end
 end
