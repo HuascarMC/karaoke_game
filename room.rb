@@ -42,4 +42,11 @@ class Room
     end
   end
 
+  def room_is_full
+    if @guests.count == 2
+      puts "Room is full"
+    end
+      puts "Go in"
+  end
+
 end
