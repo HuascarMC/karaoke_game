@@ -29,7 +29,7 @@ class TestKaraoke < MiniTest::Test
   def test_karaoke
     puts "Choose between Miguel, Andre, Dan."
     puts "Welcome to CCC, what's your name?"
-      name = gets.chomp
+      name = gets.chomp.capitalize
 
     puts "Would you like to join a room, #{name}?"
       answer_1 = gets.chomp
@@ -61,8 +61,9 @@ class TestKaraoke < MiniTest::Test
           # end
         end
           puts "Sing along"
-          sing = gets.chomp
-          puts sing
+          sing = gets.chomp.upcase
+          puts "#{name} grabs microphone and sings: "
+          puts sing + "!!!!!!!!!!"
       end
     else
       puts "You can hang out then."
