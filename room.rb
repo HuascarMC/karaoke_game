@@ -60,4 +60,22 @@ class Room
     end
   end
 
+  def call_guest(name)
+    for guest in @guests
+      if guest.name == name
+        return guest
+      end
+    end
+  end
+
+  def buys_drink(name, bar)
+    this_guest = call_guest(name)
+    puts "What would you like to drink?"
+    drink = gets.chomp
+    this_guest.money = this_guest.money - bar.drinks[drink.to_sym]
+    bar.till += bar.drinks[drink.to_sym]
+    bar.drinks_sold += 1
+    puts "Your remaining balance is $#{this_guest.money}."
+  end
+
 end

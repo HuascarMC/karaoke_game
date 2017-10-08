@@ -69,4 +69,8 @@ class TestRooms < MiniTest::Test
     assert_equal("Whoo!", result)
   end
 
+  def test_guest_buys_drink
+    @room01.check_in_guest("Andre", @waiting_room)
+    @room01.buys_drink("Andre", @bar)
+  end
 end

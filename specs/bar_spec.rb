@@ -7,5 +7,7 @@ class TestBar < MiniTest::Test
     @bar = Bar.new()
   end
 
-
+  def test_drink
+    assert_equal(5, @bar.drinks[:tequila])
+  end
 end

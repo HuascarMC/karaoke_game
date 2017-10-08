@@ -12,5 +12,7 @@ class Bar
     @drinks_sold = 0
   end
 
-
+  def bar_status
+    puts "The till has $#{@till} cash, #{drinks_sold} have been sold."
+  end
 end
