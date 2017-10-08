@@ -22,7 +22,7 @@ class Room
       waiting_room.remove_guest(name)
       @till += 25
     else
-      return "Not enough founds"
+      puts "Not enough founds"
     end
   end
 
@@ -74,10 +74,14 @@ class Room
     puts "What would you like to drink?"
     drink = gets.chomp
     if drink == "tequila" || drink == "beer" || drink == "rum" || drink == "vodka"
-      this_guest.money = (this_guest.money)-(bar.drinks[drink.to_sym])
-      bar.till += bar.drinks[drink.to_sym]
-      bar.drinks_sold += 1
-      puts "Your remaining balance is $#{this_guest.money}."
+      if (this_guest.money > bar.drinks[drink.to_sym])
+        this_guest.money = (this_guest.money)-(bar.drinks[drink.to_sym])
+        bar.till += bar.drinks[drink.to_sym]
+        bar.drinks_sold += 1
+        puts "Your remaining balance is $#{this_guest.money}."
+      else
+        puts "Sorry, you can't afford it."
+      end
     else
       puts "Sorry, not in stock."
     end

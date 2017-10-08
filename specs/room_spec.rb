@@ -62,6 +62,11 @@ class TestRooms < MiniTest::Test
     assert_equal("Room is full", result)
   end
 
+  def test_call_guest
+    @room01.check_in_guest("Dan", @waiting_room)
+    assert(@guest_3, call_guest("Dan"))
+  end
+
   def test_guest_favorite_song
     @room01.add_song("Theme song", "Family Guy", @pop_songs)
     @room01.check_in_guest("Andre", @waiting_room)

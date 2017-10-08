@@ -34,36 +34,38 @@ class TestKaraoke < MiniTest::Test
     puts "Would you like to join a room, #{name}?"
       answer_1 = gets.chomp
 
-        if answer_1 == "yes"
-          @room01.check_in_guest(name, @waiting_room)
+    if answer_1 == "yes"
+      @room01.check_in_guest(name, @waiting_room)
+      if @room01.guests.count > 0
+
+        puts "Great!"
+        puts "What song would you like to sing?"
+            song = gets.chomp
+        puts "Who's the author?"
+            author = gets.chomp
+
+            @room01.add_song(song, author, @pop_songs)
+            @room01.guest_favorite_song()
+
+
+        puts "Would you like to buy a drink?"
+          answer_3 = gets.chomp
+
+        if answer_3 == "yes"
+          puts "We have vodka, beer, tequila and rum."
+          # answer_2 = gets.chomp
+          #   if answer_2 == "yes"
+              @room01.buys_drink(name, @bar)
         else
-          puts "You can hang out then."
+          puts "Keep singing."
+          # end
         end
-
-    puts "Great!"
-    puts "What song would you like to sing?"
-        song = gets.chomp
-    puts "Who's the author?"
-        author = gets.chomp
-
-        @room01.add_song(song, author, @pop_songs)
-        @room01.guest_favorite_song()
-
-
-    puts "Would you like to buy a drink?"
-      answer_3 = gets.chomp
-
-    if answer_3 == "yes"
-      puts "We have vodka, beer, tequila and rum."
-      # answer_2 = gets.chomp
-      #   if answer_2 == "yes"
-          @room01.buys_drink(name, @bar)
+          puts "Sing along"
+          sing = gets.chomp
+          puts sing
+      end
     else
-      puts "Keep singing."
-      # end
+      puts "You can hang out then."
     end
-      puts "Sing along"
-      sing = gets.chomp
-      puts sing
   end
 end
