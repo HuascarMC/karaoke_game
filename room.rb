@@ -49,4 +49,15 @@ class Room
       puts "Go in"
   end
 
+  def guest_favorite_song
+    for guest in @guests
+      for song in @playlist
+        if guest.song == song
+        end
+      end
+      puts "Whoo!"
+      return "Whoo!"
+    end
+  end
+
 end
