@@ -34,4 +34,12 @@ class Room
     end
   end
 
+  def add_song(name, author, songs)
+    for song in songs
+      if (song.name == name) && (song.author == author)
+        @playlist << song
+      end
+    end
+  end
+
 end
