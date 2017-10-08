@@ -55,17 +55,15 @@ class TestKaraoke < MiniTest::Test
 
     if answer_3 == "yes"
       puts "We have vodka, beer, tequila and rum."
-      answer_2 = gets.chomp
-        if answer_2 == "yes"
-          puts "What would you like to drink?"
+      # answer_2 = gets.chomp
+      #   if answer_2 == "yes"
           @room01.buys_drink(name, @bar)
-        end
     else
       puts "Keep singing."
+      # end
     end
-    puts "Sing along"
-    sing = gets.chomp
-    puts sing
+      puts "Sing along"
+      sing = gets.chomp
+      puts sing
   end
-
 end
