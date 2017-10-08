@@ -26,5 +26,46 @@ class TestKaraoke < MiniTest::Test
     @room01 = Room.new()
   end
 
+  def test_karaoke
+    puts "Choose between Miguel, Andre, Dan."
+    puts "Welcome to CCC, what's your name?"
+      name = gets.chomp
+
+    puts "Would you like to join a room, #{name}?"
+      answer_1 = gets.chomp
+
+        if answer_1 == "yes"
+          @room01.check_in_guest(name, @waiting_room)
+        else
+          puts "You can hang out then."
+        end
+
+    puts "Great!"
+    puts "What song would you like to sing?"
+        song = gets.chomp
+    puts "Who's the author?"
+        author = gets.chomp
+
+        @room01.add_song(song, author, @pop_songs)
+        @room01.guest_favorite_song()
+
+
+    puts "Would you like to buy a drink?"
+      answer_3 = gets.chomp
+
+    if answer_3 == "yes"
+      puts "We have vodka, beer, tequila and rum."
+      answer_2 = gets.chomp
+        if answer_2 == "yes"
+          puts "What would you like to drink?"
+          @room01.buys_drink(name, @bar)
+        end
+    else
+      puts "Keep singing."
+    end
+    puts "Sing along"
+    sing = gets.chomp
+    puts sing
+  end
 
 end
