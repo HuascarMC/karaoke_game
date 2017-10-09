@@ -1,3 +1,5 @@
+require 'tty-prompt'
+
 class Room
   attr_accessor :guests, :playlist, :waiting_room
 
@@ -71,8 +73,15 @@ class Room
 
   def buys_drink(name, bar)
     this_guest = call_guest(name)
-    puts "What would you like to drink?"
-    drink = gets.chomp
+    # puts "What would you like to drink?"
+    # drink = gets.chomp
+
+    prompt = TTY::Prompt.new
+    q1 = 'What would you like to drink?'
+    drinks = %w(tequila rum vodka beer)
+    drink = prompt.select(q1, drinks)
+    p "Bartender passes a glass of #{drink} to #{name}."
+
     if drink == "tequila" || drink == "beer" || drink == "rum" || drink == "vodka"
       if (this_guest.money > bar.drinks[drink.to_sym])
         this_guest.money = (this_guest.money)-(bar.drinks[drink.to_sym])
